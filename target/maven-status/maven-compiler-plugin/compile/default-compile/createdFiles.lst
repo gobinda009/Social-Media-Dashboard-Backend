@@ -1,0 +1,7 @@
+com\infotrixs\Social\Media\Dashboard\Backned\IRepo.class
+com\infotrixs\Social\Media\Dashboard\Backned\UserAuthenticationToken.class
+com\infotrixs\Social\Media\Dashboard\Backned\PasswordEncrpytor.class
+com\infotrixs\Social\Media\Dashboard\Backned\SocialMediaDashboardBackendApplication.class
+com\infotrixs\Social\Media\Dashboard\Backned\Controller.class
+com\infotrixs\Social\Media\Dashboard\Backned\User.class
+com\infotrixs\Social\Media\Dashboard\Backned\UserService.class
