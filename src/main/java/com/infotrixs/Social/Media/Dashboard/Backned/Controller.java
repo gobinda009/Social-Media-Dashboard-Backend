@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*", allowedHeaders="*")
+@CrossOrigin(origins = "https://user-data-5j3z.onrender.com")
 @RestController
 public class Controller {
     @Autowired
