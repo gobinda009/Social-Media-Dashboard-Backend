@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -31,5 +32,9 @@ public class UserService {
             return "Internal Server issues while saving password, try again later!!!";
         }
 
+    }
+
+    public List<User> getUser() {
+        return iRepo.findAll();
     }
 }
