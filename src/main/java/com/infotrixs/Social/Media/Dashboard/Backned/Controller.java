@@ -25,5 +25,10 @@ public class Controller {
         return service.getUser();
     }
 
+    @GetMapping("login")
+    public boolean UserLogin(@Valid @RequestBody SignInputDto signInputDto){
+        return service.userLogin(signInputDto);
+    }
+
 
 }

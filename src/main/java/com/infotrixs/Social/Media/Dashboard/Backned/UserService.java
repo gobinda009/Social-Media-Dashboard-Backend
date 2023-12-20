@@ -11,6 +11,9 @@ public class UserService {
     @Autowired
     IRepo iRepo;
 
+    @Autowired
+    ITokenService tokenService;
+
     public String signup(User user) {
         //Method for signup by new user
         String newEmail = user.getEmail();
@@ -36,5 +39,32 @@ public class UserService {
 
     public List<User> getUser() {
         return iRepo.findAll();
+    }
+
+    public boolean userLogin(SignInputDto signInputDto) {
+        String email = signInputDto.getEmail();
+        User existingUser = iRepo.findFirstByEmail(email);
+        if (existingUser == null) {
+            return false;
+        }
+        //password should be matched
+        String password = signInputDto.getPassword();
+        try {
+            String encryptedPassword = PasswordEncrpytor.encryptPassword(password);
+
+            if (existingUser.getPassword().equals(encryptedPassword)) {
+                // return a token for this sign in
+                UserAuthenticationToken token = new UserAuthenticationToken(existingUser);
+                tokenService.createToken(token);
+                return true;
+            } else {
+                //password was wrong!!!
+                return false;
+            }
+
+        } catch (NoSuchAlgorithmException e) {
+
+            return false;
+        }
     }
 }
